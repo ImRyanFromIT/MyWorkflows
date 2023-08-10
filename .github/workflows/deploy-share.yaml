@@ -1,0 +1,16 @@
+name: Deploy to file share
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+jobs:
+    DeployFiles:
+        runs-on: [GV-DATA01]
+
+        steps:
+            - name: Pull Repo
+              run: cd /D U:\WebShare\Git_Actions & git pull origin main
+              shell: cmd
